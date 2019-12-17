@@ -1,0 +1,55 @@
+打开cmd命令窗口，切换到nginx解压目录下，输入命令 nginx.exe 或者 start nginx ，回车即可
+
+检查nginx是否启动成功
+
+直接在浏览器地址栏输入网址 http://localhost:80，回车，出现以下页面说明启动成功
+
+
+conf目录下的nginx.conf
+
+检查80端口是否被占用的命令是： netstat -ano | findstr 0.0.0.0:80 或 netstat -ano | findstr "80"
+
+关闭nginx
+
+如果使用cmd命令窗口启动nginx，关闭cmd窗口是不能结束nginx进程的，可使用两种方法关闭nginx
+
+(1)输入nginx命令  nginx -s stop(快速停止nginx)  或  nginx -s quit(完整有序的停止nginx)
+
+(2)使用taskkill   taskkill /f /t /im nginx.exe
+
+
+
+nginx -s reload 即可让改动生效
+
+
+反向代理配置示例
+server {
+    listen       8080;        #监听80端口
+    server_name  scfs_test; #监听的域名
+    location / {            #转发或处理
+        proxy_pass http://localhost:8080; 
+    }
+    error_page   500 502 503 504  /50x.html;#错误页
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+}
+
+
+负载均衡配置示例
+upstream serverswitch {
+    server 127.0.0.1:8080;
+    server 127.0.0.1;
+}
+
+server {
+    listen       80;        #监听80端口
+    server_name   ss.test.ken.io; #监听的域名
+    location / {            #转发或处理
+        proxy_pass https://serverswitch; 
+    }
+    error_page   500 502 503 504  /50x.html;#错误页
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+}

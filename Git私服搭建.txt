@@ -1,0 +1,20 @@
+安装Git服务器端
+	yum install git
+
+安装完后，查看 Git 版本
+	git --version
+创建服务器端git仓库
+ 创建 		mkdir -p /usr/local/gitrepository
+ 打开 		cd /usr/local/gitrepository
+ 初始化		git init --bare /usr/local/gitrepository
+
+服务器端创建 git 用户，用来管理 Git 服务，并为 git 用户设置密码
+[root@iZm5egstry6atum2bewjdgZ gitrepository]# id git
+id: git: no such user
+[root@iZm5egstry6atum2bewjdgZ gitrepository]# useradd git
+[root@iZm5egstry6atum2bewjdgZ gitrepository]# passwd git
+Changing password for user git.
+New password: 
+BAD PASSWORD: The password contains the user name in some form
+Retype new password: 
+passwd: all authentication tokens updated successfully.

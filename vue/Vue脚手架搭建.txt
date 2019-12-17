@@ -1,0 +1,109 @@
+https://blog.csdn.net/Yvettre/article/details/81169845
+https://www.cnblogs.com/zhaomeizi/p/8483597.html
+
+1： Node.js安装
+	判断是否安装成功 : node -v
+	
+	在nodejs的安装目录E:\nodejs\下，新建node_global和node_cache两个文件夹
+	
+	执行指令：
+
+		npm config set prefix "E:\nodejs\node_global"
+		npm config set cache "E:\nodejs\node_cache"
+		
+	设置成功后，后续用命令npm install -g XXX安装的XXX模块就在D:\nodejs\node_global\node_modules里。
+
+	查看配置信息指令：npm config list
+	
+	添加用户变量PATH：E:\nodejs\node_global
+	新增系统变量NODE_PATH：E:\nodejs\node_global\node_modules
+2：安装cnpm
+
+	
+	使用NPM安装
+
+	—NPM: NPM是随同NodeJS一起安装的包管理工具，能解决NodeJS代码部署上的很多问题
+
+	由于 NPM 安装速度慢（服务器在国外），这里使用淘宝的镜像及其命令 cnpm 
+	安装淘宝的镜像： 
+	打开cmd命令框，输入 
+	npm install -g cnpm –registry=https://registry.npm.taobao.org 
+	npm install -g cnpm --registry=https://registry.npm.taobao.org
+	
+判断是否安装成功 : npm -v
+
+
+3. 安装vue
+		安装Vue   cnpm install vue -g
+		安装vue命令行工具，即vue-cli 脚手架  cnpm install vue-cli -g
+		
+		全局卸载：npm uninstall vue-cli -g;
+	
+	测试  vue --version
+
+
+创建项目   vue init webpack  ”项目名称“
+
+
+
+安装 elementUI
+npm i element-ui -S
+
+npm uninstall element-ui
+
+
+ajax
+
+cnpm install axios
+npm install axios
+npm uninstall axios
+
+
+下载webpack脚手架
+(1) 下载指令：vue init webpack learnVue
+
+	其中webpack是打包和压缩的工具模板，learnVue是工程文件夹名称
+	执行完会在当前目录下生成一个名为工程名称的文件夹，并下载好了模板，但相关依赖还没有安装
+(2) 执行指令后会先提示下载中，大概几秒后会提示输入工程的相关信息：
+
+	project name：工程名（不是文件夹名），不可以含有大写字母，后续是页面的title
+	vue-router：vuejs提供的路由工具，我选择安装，相关介绍可戳这里
+	ESLint：好像是一个语法检查选项，我不安装
+	unit tests和e2e tests：好像都是测试项，我也没有安装
+	最后一个选项是推荐相关依赖后续使用npm install指令安装，选择Yes, use npm
+(3) 然后等待一段时间即完成下载
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+这里是sublime text 3安装vue插件方法：
+
+1）ctrl+shift+p
+
+2）选择第一项 Install package 
+
+3）然后不久就会弹出另一个界面，然后选择Vue.js Snippets,然后重复1） 2）操作 选择 Vue.js Syntax Hightlight
+
+4）关掉sublime，重新打开，就会发现他可以识别后缀为 .vue的文件的语法了
+
+html ctrl+alt+h
+javascript ctrl+alt+j
+css ctrl+alt+c
+php ctrl+alt+p
+ruby ctrl+alt+r
+python ctrl+alt+shift+p
+
+	
